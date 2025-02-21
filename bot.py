@@ -21,7 +21,8 @@ STREAMS = {
 # Überprüfe, ob die Umgebungsvariable gesetzt ist
 token = os.getenv("Discord_Bot_Key")
 if not token:
-    print("Discord_Bot_Key ist nicht gesetzt!")
+    print("ERROR: Discord_Bot_Key ist nicht gesetzt!")
+    exit(1)  # Stoppe den Bot, falls der Token nicht gesetzt ist
 else:
     print("Discord_Bot_Key ist korrekt gesetzt.")
 
@@ -64,5 +65,4 @@ async def leave(ctx):
         await ctx.send("Ich bin in keinem Sprachkanal!")
 
 # Run the bot
-if token:
-    bot.run(token)
+bot.run(token)
